@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:moviedb/screens/home_page.dart';
 
 void main() {
-  runApp(const MaterialApp(home: App()));
+  runApp(
+    MaterialApp(
+      routes: {
+        '/login': (context) => App(),
+        '/home_page': (context) => HomePage(),
+      },
+      home: App(),
+    ),
+  );
 }
 
 class App extends StatelessWidget {
@@ -33,7 +42,9 @@ class App extends StatelessWidget {
             ),
             Center(
               child: MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/home_page');
+                },
                 child: const Text('Button'),
               ),
             )
