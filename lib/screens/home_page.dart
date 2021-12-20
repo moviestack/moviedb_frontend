@@ -14,9 +14,10 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Home Page'),
       ),
-      body: const SingleChildScrollView(
-        child: Center(
-          child: Text('Hello Flutter'),
+      body: const Center(
+        child: Text(
+          'Movies coming soon',
+          style: TextStyle(fontSize: 28),
         ),
       ),
     );

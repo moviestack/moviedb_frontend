@@ -5,8 +5,11 @@ import 'package:moviedb/screens/login.dart';
 void main() {
   runApp(
     MaterialApp(
+      theme: ThemeData(
+        fontFamily: 'prodSans',
+      ),
       routes: {
-        '/login': (context) => LogIn(),
+        '/login': (context) => const LogIn(),
         '/home_page': (context) => HomePage(),
       },
       home: const App(),
@@ -19,6 +22,6 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LogIn();
+    return const LogIn();
   }
 }
