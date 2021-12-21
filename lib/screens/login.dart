@@ -21,15 +21,16 @@ class _LogInState extends State<LogIn> {
     TextEditingController _passwordController = TextEditingController();
     return Scaffold(
       appBar: PreferredSize(
-          child: const SizedBox(
-            child: Center(
-              child: Text(
-                'Login',
-                style: TextStyle(fontSize: 40),
-              ),
+        child: const SizedBox(
+          child: Center(
+            child: Text(
+              'Login',
+              style: TextStyle(fontSize: 40),
             ),
           ),
-          preferredSize: Size(width, 80)),
+        ),
+        preferredSize: Size(width, 80),
+      ),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -141,6 +142,14 @@ class _LogInState extends State<LogIn> {
                       'Create account',
                       style: TextStyle(fontSize: 16),
                     ),
+                  ),
+                ),
+                MaterialButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/home_page');
+                  },
+                  child: const Text(
+                    'Bypass',
                   ),
                 ),
               ],
