@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../constants/input_decoration.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import '../services/auth.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({Key? key}) : super(key: key);
@@ -11,14 +12,17 @@ class LogIn extends StatefulWidget {
 
 class _LogInState extends State<LogIn> {
   final _key = GlobalKey<FormState>();
+  final _auth = Auth();
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    TextEditingController _usernameController = TextEditingController();
+    TextEditingController _passwordController = TextEditingController();
     return Scaffold(
       appBar: PreferredSize(
-          child: Container(
-            child: const Center(
+          child: const SizedBox(
+            child: Center(
               child: Text(
                 'Login',
                 style: TextStyle(fontSize: 40),
@@ -45,6 +49,7 @@ class _LogInState extends State<LogIn> {
                     child: SizedBox(
                       width: 600,
                       child: TextFormField(
+                        controller: _usernameController,
                         validator: RequiredValidator(
                           errorText: 'Username is required',
                         ),
@@ -64,6 +69,7 @@ class _LogInState extends State<LogIn> {
                     child: SizedBox(
                       width: 600,
                       child: TextFormField(
+                        controller: _passwordController,
                         validator:
                             RequiredValidator(errorText: 'Password validator'),
                         decoration: inputDecoration.copyWith(
@@ -87,10 +93,22 @@ class _LogInState extends State<LogIn> {
                   elevation: 10,
                   child: MaterialButton(
                     minWidth: 80,
-                    onPressed: () {
+                    onPressed: () async {
                       //login logic needs to be implemented8
                       if (_key.currentState!.validate()) {
-                        Navigator.pushNamed(context, '/home_page');
+                        var resp = await _auth.login(
+                            _usernameController.text, _passwordController.text);
+                        if (resp['status'] == 200) {
+                          Navigator.pushNamed(context, '/home_page');
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                resp['error'],
+                              ),
+                            ),
+                          );
+                        }
                       }
                     },
                     child: const Text(
@@ -104,7 +122,21 @@ class _LogInState extends State<LogIn> {
                   elevation: 10,
                   child: MaterialButton(
                     minWidth: 120,
-                    onPressed: () {},
+                    onPressed: () async {
+                      var resp = await _auth.register(
+                          _usernameController.text, _passwordController.text);
+                      if (resp['status'] == 200) {
+                        Navigator.pushNamed(context, '/home_page');
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              resp['error'],
+                            ),
+                          ),
+                        );
+                      }
+                    },
                     child: const Text(
                       'Create account',
                       style: TextStyle(fontSize: 16),

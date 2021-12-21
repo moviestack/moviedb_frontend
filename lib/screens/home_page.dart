@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -17,7 +17,9 @@ class _HomePageState extends State<HomePage> {
       body: const Center(
         child: Text(
           'Movies coming soon',
-          style: TextStyle(fontSize: 28),
+          style: TextStyle(
+            fontSize: 28,
+          ),
         ),
       ),
     );
