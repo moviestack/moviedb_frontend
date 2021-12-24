@@ -5,12 +5,11 @@ import 'package:moviedb/screens/login.dart';
 void main() {
   runApp(
     MaterialApp(
-      theme: ThemeData(
-        fontFamily: 'prodSans',
-      ),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'prodSans', brightness: Brightness.dark),
       routes: {
         '/login': (context) => const LogIn(),
-        '/home_page': (context) => HomePage(),
+        '/home_page': (context) => const HomePage(),
       },
       home: const App(),
     ),
