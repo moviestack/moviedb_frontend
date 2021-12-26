@@ -23,7 +23,7 @@ class _MoviesGridState extends State<MoviesGrid> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return FutureBuilder(
-      future: Database().getAllData(),
+      future: Database().getMovieList(),
       builder: (context, AsyncSnapshot<dynamic> snap) {
         if (snap.connectionState == ConnectionState.waiting) {
           return Center(
@@ -65,8 +65,7 @@ class _MoviesGridState extends State<MoviesGrid> {
                         snap.data[i]['poster_url'],
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) {
-                          return Image.asset(
-                              'assets/images/pp,840x830-pad,1000x1000,f8f8f8.u2.jpg');
+                          return Text(snap.data[i]['m_id'].toString());
                         },
                       ),
                     ),

@@ -38,8 +38,7 @@ dependencies:
   form_field_validator: ^1.1.0
   dio: ^4.0.4
   lottie: ^1.2.1
-  flutter_widget_from_html_core: any
-  fwfh_cached_network_image: ^0.7.0
+  flutter_rating_bar: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -102,5 +101,11 @@ flutter:
     - family: alte 
       fonts:
         - asset: assets/fonts/din1451alt.ttf
+    - family: oc 
+      fonts:
+        - asset: assets/fonts/FontsFree-Net-OC-Pajaro.ttf
+    - family: geomet 
+      fonts:
+        - asset: assets/fonts/Geometos.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

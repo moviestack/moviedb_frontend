@@ -33,9 +33,11 @@ class _HomePageState extends State<HomePage> {
                             title: Text(
                               'MovieDB.',
                               style: TextStyle(
-                                  fontSize: 30,
-                                  color: Colors.red,
-                                  fontWeight: FontWeight.bold),
+                                fontSize: 30,
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'geomet',
+                              ),
                             ),
                           ),
                           const ListTile(
