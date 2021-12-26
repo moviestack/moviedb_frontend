@@ -6,7 +6,7 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: 'prodSans', brightness: Brightness.dark),
+      theme: ThemeData(fontFamily: 'prodSans', brightness: Brightness.light),
       routes: {
         '/login': (context) => const LogIn(),
         '/home_page': (context) => const HomePage(),
