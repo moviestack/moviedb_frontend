@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_navigation/src/routes/default_transitions.dart';
 import 'package:moviedb/components/moviesgrid.dart';
+import 'package:moviedb/screens/browse.dart';
+import 'package:moviedb/screens/home.dart';
+import 'package:moviedb/services/controller.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -17,149 +23,95 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-
-    TextEditingController _searchController = TextEditingController();
+    List pages = [
+      HomeWidget(width: width),
+      BrowseScreenWidget(width: width),
+    ];
+    Controller controller = Controller();
     return Scaffold(
-        body: width >= 1200
-            ? Row(
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Container(
-                      color: Colors.blueGrey.withAlpha(20),
-                      child: ListView(
-                        children: [
-                          const ListTile(
-                            title: Text(
-                              'MovieDB.',
-                              style: TextStyle(
-                                fontSize: 30,
-                                color: Colors.red,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'geomet',
-                              ),
+      body: width >= 1200
+          ? Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.blueGrey.withAlpha(20),
+                        borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(40))),
+                    child: ListView(
+                      children: [
+                        const ListTile(
+                          title: Text(
+                            'MovieDB.',
+                            style: TextStyle(
+                              fontSize: 30,
+                              color: Colors.red,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'geomet',
                             ),
                           ),
-                          const ListTile(
-                            title: Text('Menu'),
+                        ),
+                        const SizedBox(
+                          height: 54,
+                        ),
+                        const ListTile(
+                          title: Text('Menu'),
+                          leading: FaIcon(
+                            FontAwesomeIcons.list,
+                            color: Color(0xffE50914),
                           ),
-                          ListTile(
-                            title: const Text('Home'),
-                            leading: const Icon(Icons.home),
-                            onTap: () {},
+                        ),
+                        ListTile(
+                          title: const Text('Home'),
+                          leading: const FaIcon(
+                            FontAwesomeIcons.play,
+                            color: Color(0xffE50914),
                           ),
-                          ListTile(
-                            title: const Text('Browse'),
-                            leading: const Icon(Icons.search),
-                            onTap: () {},
+                          onTap: () {
+                            controller.index.value = 0;
+                          },
+                        ),
+                        ListTile(
+                          title: const Text('Browse'),
+                          leading: const FaIcon(
+                            FontAwesomeIcons.search,
+                            color: Color(0xffE50914),
                           ),
-                          ListTile(
-                            title: const Text('LogOut'),
-                            leading: const Icon(Icons.logout),
-                            onTap: () {},
+                          onTap: () {
+                            controller.index.value = 1;
+                          },
+                        ),
+                        ListTile(
+                          title: const Text('LogOut'),
+                          leading: const FaIcon(
+                            FontAwesomeIcons.signOutAlt,
+                            color: Color(0xffE50914),
                           ),
-                        ],
-                      ),
+                          onTap: () {},
+                        ),
+                      ],
                     ),
                   ),
-                  Expanded(
+                ),
+                Expanded(
                     flex: 6,
-                    child: Container(
-                      color: Colors.grey.withAlpha(10),
-                      child: Column(
-                        children: [
-                          Expanded(
-                            flex: 1,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Container(
-                                  margin:
-                                      const EdgeInsets.only(right: 40, top: 10),
-                                  child: SizedBox(
-                                    width: width / 5.6,
-                                    height: 50,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(0.0),
-                                      child: TextFormField(
-                                        cursorColor: Colors.black,
-                                        controller: _searchController,
-                                        onFieldSubmitted: (value) {},
-                                        decoration: InputDecoration(
-                                          label: SizedBox(
-                                            width: 100,
-                                            child: Row(
-                                              children: const [
-                                                Icon(
-                                                  Icons.search,
-                                                  color: Colors.amber,
-                                                ),
-                                                Text(
-                                                  'Search...',
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                  style: TextStyle(
-                                                      color: Colors.black),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          hintText: 'example ->The Matrix',
-                                          enabledBorder: OutlineInputBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(18),
-                                          ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(18),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: width / 2.0,
-                                ),
-                                const Padding(
-                                  padding: EdgeInsets.only(right: 10, top: 10),
-                                  child: CircleAvatar(
-                                    radius: 30,
-                                    backgroundColor: Colors.red,
-                                    child: Text(
-                                      'A',
-                                      style: TextStyle(fontSize: 18),
-                                    ),
-                                  ),
-                                ),
-                                const Padding(
-                                  padding: EdgeInsets.only(right: 30),
-                                  child: Text(
-                                    'Abhilash Hegde',
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          const Expanded(
-                            flex: 8,
-                            child: Center(
-                              child: MoviesGrid(),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  )
-                ],
-              )
-            : Center(
-                child:
-                    Text('This site is designed only for widescreen devices'),
-              ));
+                    child: Obx(() {
+                      return AnimatedSwitcher(
+                        transitionBuilder: (widget, animation) =>
+                            ScaleTransition(
+                          scale: animation,
+                          child: widget,
+                        ),
+                        duration: const Duration(milliseconds: 280),
+                        child: pages[controller.index.value],
+                      );
+                    }))
+              ],
+            )
+          : const Center(
+              child: Text('This site is designed only for widescreen devices'),
+            ),
+    );
   }
 }

@@ -13,12 +13,14 @@ class LogIn extends StatefulWidget {
 class _LogInState extends State<LogIn> {
   final _key = GlobalKey<FormState>();
   final _auth = Auth();
+  bool isClicked = true;
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
+    //double height = MediaQuery.of(context).size.height;
     TextEditingController _usernameController = TextEditingController();
     TextEditingController _passwordController = TextEditingController();
+
     return Scaffold(
       appBar: PreferredSize(
         child: const SizedBox(
@@ -68,16 +70,13 @@ class _LogInState extends State<LogIn> {
                       borderRadius: BorderRadius.circular(14),
                     ),
                     child: SizedBox(
-                      width: 600,
-                      child: TextFormField(
-                        controller: _passwordController,
-                        validator:
-                            RequiredValidator(errorText: 'Password validator'),
-                        decoration: inputDecoration.copyWith(
-                          labelText: 'Password',
-                        ),
-                      ),
-                    ),
+                        width: 600,
+                        child: TextFormField(
+                          controller: _passwordController,
+                          decoration: inputDecoration.copyWith(
+                            labelText: 'Password',
+                          ),
+                        )),
                   ),
                 ],
               ),
