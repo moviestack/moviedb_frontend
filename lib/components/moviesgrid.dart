@@ -65,7 +65,11 @@ class _MoviesGridState extends State<MoviesGrid> {
                         snap.data[i]['poster_url'],
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) {
-                          return Text(snap.data[i]['m_id'].toString());
+                          return Image.asset(
+                            'assets/images/pp,840x830-pad,1000x1000,f8f8f8.u2.jpg',
+                            width: 500,
+                            height: 500,
+                          );
                         },
                       ),
                     ),
