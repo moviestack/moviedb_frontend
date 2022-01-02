@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moviedb/screens/admin_login.dart';
 import 'package:moviedb/screens/home_page.dart';
 import 'package:moviedb/screens/login.dart';
 
@@ -6,10 +7,11 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: 'prodSans', brightness: Brightness.light),
+      theme: ThemeData(fontFamily: 'geomet', brightness: Brightness.light),
       routes: {
         '/login': (context) => const LogIn(),
         '/home_page': (context) => const HomePage(),
+        '/adminLogin': (context) => const AdminLogin(),
       },
       home: const App(),
     ),

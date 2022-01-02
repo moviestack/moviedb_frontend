@@ -4,7 +4,8 @@ import 'package:moviedb/services/database.dart';
 import 'package:lottie/lottie.dart';
 
 class MoviesGrid extends StatefulWidget {
-  const MoviesGrid({Key? key}) : super(key: key);
+  Future future;
+  MoviesGrid({Key? key, required this.future}) : super(key: key);
 
   @override
   _MoviesGridState createState() => _MoviesGridState();
@@ -23,7 +24,7 @@ class _MoviesGridState extends State<MoviesGrid> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return FutureBuilder(
-      future: Database().getMovieList(),
+      future: widget.future,
       builder: (context, AsyncSnapshot<dynamic> snap) {
         if (snap.connectionState == ConnectionState.waiting) {
           return Center(
@@ -34,8 +35,11 @@ class _MoviesGridState extends State<MoviesGrid> {
                   'https://assets9.lottiefiles.com/packages/lf20_lrjha2vi.json'),
             ),
           );
+        } else if (snap.data!.length == 0) {
+          return const Center(
+            child: Text('No data found'),
+          );
         } else {
-          String url = snap.data[0]['poster_url'];
           return GridView.builder(
             controller: _controller,
             shrinkWrap: true,

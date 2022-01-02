@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:moviedb/components/moviesgrid.dart';
+import 'package:moviedb/services/database.dart';
+import 'package:moviedb/services/user.dart';
 
-class HomeWidget extends StatelessWidget {
+class HomeWidget extends StatefulWidget {
   double width;
   HomeWidget({Key? key, required this.width}) : super(key: key);
 
+  @override
+  State<HomeWidget> createState() => _HomeWidgetState();
+}
+
+class _HomeWidgetState extends State<HomeWidget> {
   final _searchController = TextEditingController();
+
+  bool isSearching = false;
+
+  String searchTitle = '';
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +32,25 @@ class HomeWidget extends StatelessWidget {
                 Container(
                   margin: const EdgeInsets.only(right: 40, top: 10),
                   child: SizedBox(
-                    width: width / 5.6,
+                    width: widget.width / 5.6,
                     height: 50,
                     child: Padding(
                       padding: const EdgeInsets.all(0.0),
                       child: TextFormField(
                         cursorColor: Colors.black,
                         controller: _searchController,
-                        onFieldSubmitted: (value) {},
+                        onFieldSubmitted: (value) {
+                          if (value != '') {
+                            setState(() {
+                              isSearching = true;
+                              searchTitle = value;
+                            });
+                          } else {
+                            setState(() {
+                              isSearching = false;
+                            });
+                          }
+                        },
                         decoration: InputDecoration(
                           label: SizedBox(
                             width: 100,
@@ -41,7 +63,10 @@ class HomeWidget extends StatelessWidget {
                                 Text(
                                   'Search...',
                                   overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(color: Colors.black),
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 14,
+                                  ),
                                 )
                               ],
                             ),
@@ -59,7 +84,7 @@ class HomeWidget extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: width / 2.0,
+                  width: widget.width / 2.0,
                 ),
                 const Padding(
                   padding: EdgeInsets.only(right: 10, top: 10),
@@ -72,11 +97,12 @@ class HomeWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Padding(
+                Padding(
                   padding: EdgeInsets.only(right: 30),
                   child: Text(
-                    'Abhilash Hegde',
+                    User().getUname.toString(),
                     overflow: TextOverflow.ellipsis,
+                    style: TextStyle(fontSize: 12),
                   ),
                 ),
               ],
@@ -85,10 +111,14 @@ class HomeWidget extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          const Expanded(
+          Expanded(
             flex: 8,
             child: Center(
-              child: MoviesGrid(),
+              child: MoviesGrid(
+                future: isSearching
+                    ? Database().searchMovie(searchTitle)
+                    : Database().getMovieList(),
+              ),
             ),
           )
         ],

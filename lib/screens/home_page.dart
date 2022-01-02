@@ -56,14 +56,15 @@ class _HomePageState extends State<HomePage> {
                           height: 54,
                         ),
                         const ListTile(
-                          title: Text('Menu'),
+                          title: Text('Menu', style: TextStyle(fontSize: 13)),
                           leading: FaIcon(
                             FontAwesomeIcons.list,
                             color: Color(0xffE50914),
                           ),
                         ),
                         ListTile(
-                          title: const Text('Home'),
+                          title: const Text('Home',
+                              style: TextStyle(fontSize: 13)),
                           leading: const FaIcon(
                             FontAwesomeIcons.play,
                             color: Color(0xffE50914),
@@ -73,7 +74,8 @@ class _HomePageState extends State<HomePage> {
                           },
                         ),
                         ListTile(
-                          title: const Text('Browse'),
+                          title: const Text('Browse',
+                              style: TextStyle(fontSize: 13)),
                           leading: const FaIcon(
                             FontAwesomeIcons.search,
                             color: Color(0xffE50914),
@@ -83,12 +85,15 @@ class _HomePageState extends State<HomePage> {
                           },
                         ),
                         ListTile(
-                          title: const Text('LogOut'),
+                          title: const Text('LogOut',
+                              style: TextStyle(fontSize: 13)),
                           leading: const FaIcon(
                             FontAwesomeIcons.signOutAlt,
                             color: Color(0xffE50914),
                           ),
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.of(context).popAndPushNamed('/login');
+                          },
                         ),
                       ],
                     ),
