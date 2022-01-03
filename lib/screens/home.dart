@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:moviedb/components/moviesgrid.dart';
 import 'package:moviedb/services/database.dart';
 import 'package:moviedb/services/user.dart';
@@ -17,6 +18,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   bool isSearching = false;
 
   String searchTitle = '';
+  final box = GetStorage();
 
   @override
   Widget build(BuildContext context) {
@@ -65,13 +67,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
                                     color: Colors.black,
-                                    fontSize: 14,
+                                    fontSize: 12,
                                   ),
                                 )
                               ],
                             ),
                           ),
                           hintText: 'example ->The Matrix',
+                          hintStyle: const TextStyle(fontSize: 12),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(18),
                           ),
@@ -86,23 +89,23 @@ class _HomeWidgetState extends State<HomeWidget> {
                 SizedBox(
                   width: widget.width / 2.0,
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(right: 10, top: 10),
+                Padding(
+                  padding: const EdgeInsets.only(right: 10, top: 10),
                   child: CircleAvatar(
                     radius: 30,
                     backgroundColor: Colors.red,
                     child: Text(
-                      'A',
-                      style: TextStyle(fontSize: 18),
+                      box.read('uname').toString()[0],
+                      style: const TextStyle(fontSize: 20),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(right: 30),
+                  padding: const EdgeInsets.only(right: 30),
                   child: Text(
-                    User().getUname.toString(),
+                    box.read('uname').toString(),
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontSize: 12),
+                    style: const TextStyle(fontSize: 12),
                   ),
                 ),
               ],

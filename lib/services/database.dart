@@ -65,4 +65,13 @@ class Database {
     final resp = await dio.get(url, queryParameters: query);
     return resp.data;
   }
+
+  Future addRating(int mId, String uname, double rating) async {
+    final resp = await dio.post('http://localhost:3000/addRating', data: {
+      "m_id": mId,
+      "rating": rating,
+      "uname": uname,
+    });
+    resp.data;
+  }
 }

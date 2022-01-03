@@ -36,9 +36,9 @@ class _MoviesGridState extends State<MoviesGrid> {
             ),
           );
         } else if (snap.data!.length == 0) {
-          return const Center(
-            child: Text('No data found'),
-          );
+          return Center(
+              child: Lottie.network(
+                  'https://assets1.lottiefiles.com/packages/lf20_y6ilh1zw.json'));
         } else {
           return GridView.builder(
             controller: _controller,

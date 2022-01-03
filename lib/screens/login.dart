@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:moviedb/services/user.dart';
 import '../constants/input_decoration.dart';
+import 'package:get/get.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import '../services/auth.dart';
 
@@ -15,6 +17,8 @@ class _LogInState extends State<LogIn> {
   final _key = GlobalKey<FormState>();
   final _auth = Auth();
   bool isClicked = true;
+  final box = GetStorage();
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -75,6 +79,8 @@ class _LogInState extends State<LogIn> {
                         width: 600,
                         child: TextFormField(
                           controller: _passwordController,
+                          validator: RequiredValidator(
+                              errorText: 'Password is required'),
                           cursorColor: Colors.red,
                           decoration: inputDecoration.copyWith(
                             labelText: 'Password',
@@ -98,13 +104,13 @@ class _LogInState extends State<LogIn> {
                         borderRadius: BorderRadius.circular(14)),
                     clipBehavior: Clip.antiAlias,
                     child: MaterialButton(
-                      minWidth: 480,
+                      minWidth: 280,
                       height: 42,
                       onPressed: () async {
                         var resp = await _auth.register(
                             _usernameController.text, _passwordController.text);
                         if (resp['status'] == 200) {
-                          User().setUname = _usernameController.text;
+                          box.write('uname', _usernameController.text);
                           Navigator.pushReplacementNamed(context, '/home_page');
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
@@ -137,7 +143,7 @@ class _LogInState extends State<LogIn> {
                           var resp = await _auth.login(_usernameController.text,
                               _passwordController.text);
                           if (resp['status'] == 200) {
-                            User().setUname = _usernameController.text;
+                            box.write('uname', _usernameController.text);
                             Navigator.pushReplacementNamed(
                                 context, '/home_page');
                           } else {
@@ -157,21 +163,21 @@ class _LogInState extends State<LogIn> {
                       ),
                     ),
                   ),
-                  /* MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/home_page');
-                  },
-                  child: const Text(
-                    'Bypass',
-                  ),
-                ), */
-
                   Card(
+                    color: Colors.red,
+                    elevation: 10,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14)),
                     child: MaterialButton(
+                      minWidth: 200,
+                      height: 42,
                       onPressed: () {
                         Navigator.pushNamed(context, '/adminLogin');
                       },
-                      child: Text('Admin login bypass'),
+                      child: const Text(
+                        'Admin login',
+                        style: TextStyle(fontSize: 12, fontFamily: 'geomet'),
+                      ),
                     ),
                   )
                 ],
@@ -179,12 +185,12 @@ class _LogInState extends State<LogIn> {
             ),
             Container(
                 margin: EdgeInsets.only(left: width / 1.2, top: 180),
-                child: Text(
+                child: const Text(
                   'MovieDB.',
                   style: TextStyle(
-                    fontSize: 38,
-                    color: Colors.red,
-                  ),
+                      fontSize: 38,
+                      color: Colors.red,
+                      fontWeight: FontWeight.bold),
                 ))
           ],
         ),

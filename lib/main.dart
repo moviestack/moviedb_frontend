@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:moviedb/screens/admin_login.dart';
 import 'package:moviedb/screens/home_page.dart';
 import 'package:moviedb/screens/login.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() {
+void main() async {
+  await GetStorage().initStorage;
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
