@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:moviedb/constants/input_decoration.dart';
+import 'package:moviedb/services/database.dart';
 
 class AdminLogin extends StatelessWidget {
   const AdminLogin({Key? key}) : super(key: key);
@@ -298,9 +299,6 @@ class AdminLogin extends StatelessWidget {
                     const SizedBox(
                       height: 40,
                     ),
-                    //add more fields here
-                    //add controller for each textform field
-                    // check the above code for reference
                   ],
                 ),
               ),
@@ -313,11 +311,23 @@ class AdminLogin extends StatelessWidget {
                 minWidth: 200,
                 height: 50,
                 color: Colors.red,
-                onPressed: () {
+                onPressed: () async {
                   if (_key.currentState!.validate()) {
-                    print("Working");
-                  } else {
-                    print("NOT working");
+                    final resp = await Database().addMovie(
+                        _titleController.text,
+                        _plotController.text,
+                        _yearController.text,
+                        _durationController.text,
+                        _urlController.text,
+                        _countryController.text,
+                        _productionController.text,
+                        _boxOfficeController.text,
+                        _awardsController.text,
+                        _languageController.text,
+                        _genreController.text,
+                        _directorController.text);
+
+                    if (resp) {}
                   }
                 },
                 child: const Text('Submit'),

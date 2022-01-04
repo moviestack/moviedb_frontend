@@ -84,13 +84,23 @@ class Database {
     return resp.data;
   }
 
-  Future addMovie(
-    title,
-    plot,
-  ) async {
-    final resp = dio.post('path', data: {
+  Future addMovie(title, plot, year, duration, url, country, production,
+      boxOffice, awards, language, genre, director) async {
+    final resp = await dio.post('http://localhost:3000/add_movie', data: {
       "title": title,
       "plot": plot,
+      "year": year,
+      "duration": duration,
+      "url": url,
+      "country": country,
+      "production": production,
+      "box_office": boxOffice,
+      "awards": awards,
+      "language": language,
+      "genre": genre,
+      "director": director,
     });
+
+    return resp.data;
   }
 }
