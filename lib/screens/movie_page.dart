@@ -272,7 +272,7 @@ class _MoviePageState extends State<MoviePage> {
                             ),
 
                             Positioned(
-                              top: 520,
+                              top: 560,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.center,

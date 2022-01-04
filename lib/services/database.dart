@@ -83,4 +83,14 @@ class Database {
     // print(resp.data);
     return resp.data;
   }
+
+  Future addMovie(
+    title,
+    plot,
+  ) async {
+    final resp = dio.post('path', data: {
+      "title": title,
+      "plot": plot,
+    });
+  }
 }

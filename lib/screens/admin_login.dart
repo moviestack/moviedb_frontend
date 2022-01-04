@@ -8,7 +8,18 @@ class AdminLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    TextEditingController _movieTitleController = TextEditingController();
+    TextEditingController _titleController = TextEditingController();
+    TextEditingController _plotController = TextEditingController();
+    TextEditingController _yearController = TextEditingController();
+    TextEditingController _durationController = TextEditingController();
+    TextEditingController _urlController = TextEditingController();
+    TextEditingController _countryController = TextEditingController();
+    TextEditingController _productionController = TextEditingController();
+    TextEditingController _boxOfficeController = TextEditingController();
+    TextEditingController _awardsController = TextEditingController();
+    TextEditingController _languageController = TextEditingController();
+    TextEditingController _genreController = TextEditingController();
+    TextEditingController _directorController = TextEditingController();
     final _key = GlobalKey<FormState>();
     return Scaffold(
       appBar: PreferredSize(
@@ -42,7 +53,7 @@ class AdminLogin extends StatelessWidget {
                       child: SizedBox(
                         width: 600,
                         child: TextFormField(
-                          controller: _movieTitleController,
+                          controller: _titleController,
                           cursorColor: Colors.red,
                           validator: RequiredValidator(
                             errorText: 'Movie Title is required',
@@ -56,14 +67,14 @@ class AdminLogin extends StatelessWidget {
                     const SizedBox(
                       height: 40,
                     ),
-  Card(
+                    Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14),
                       ),
                       child: SizedBox(
                         width: 600,
                         child: TextFormField(
-                          controller: _movieTitleController,
+                          controller: _plotController,
                           cursorColor: Colors.red,
                           validator: RequiredValidator(
                             errorText: 'Movie Plot is required',
@@ -77,14 +88,14 @@ class AdminLogin extends StatelessWidget {
                     const SizedBox(
                       height: 40,
                     ),
- Card(
+                    Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14),
                       ),
                       child: SizedBox(
                         width: 600,
                         child: TextFormField(
-                          controller: _movieTitleController,
+                          controller: _yearController,
                           cursorColor: Colors.red,
                           validator: RequiredValidator(
                             errorText: 'Movie Year is required',
@@ -98,14 +109,14 @@ class AdminLogin extends StatelessWidget {
                     const SizedBox(
                       height: 40,
                     ),
- Card(
+                    Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14),
                       ),
                       child: SizedBox(
                         width: 600,
                         child: TextFormField(
-                          controller: _movieTitleController,
+                          controller: _durationController,
                           cursorColor: Colors.red,
                           validator: RequiredValidator(
                             errorText: 'Movie Duration is required',
@@ -119,14 +130,14 @@ class AdminLogin extends StatelessWidget {
                     const SizedBox(
                       height: 40,
                     ),
-        Card(
+                    Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14),
                       ),
                       child: SizedBox(
                         width: 600,
                         child: TextFormField(
-                          controller: _movieTitleController,
+                          controller: _urlController,
                           cursorColor: Colors.red,
                           validator: RequiredValidator(
                             errorText: 'Movie URL is required',
@@ -140,14 +151,14 @@ class AdminLogin extends StatelessWidget {
                     const SizedBox(
                       height: 40,
                     ),
- Card(
+                    Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14),
                       ),
                       child: SizedBox(
                         width: 600,
                         child: TextFormField(
-                          controller: _movieTitleController,
+                          controller: _countryController,
                           cursorColor: Colors.red,
                           validator: RequiredValidator(
                             errorText: 'Movie Country is required',
@@ -161,14 +172,14 @@ class AdminLogin extends StatelessWidget {
                     const SizedBox(
                       height: 40,
                     ),
- Card(
+                    Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14),
                       ),
                       child: SizedBox(
                         width: 600,
                         child: TextFormField(
-                          controller: _movieTitleController,
+                          controller: _productionController,
                           cursorColor: Colors.red,
                           validator: RequiredValidator(
                             errorText: 'Movie Production is required',
@@ -182,14 +193,14 @@ class AdminLogin extends StatelessWidget {
                     const SizedBox(
                       height: 40,
                     ),
-       Card(
+                    Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14),
                       ),
                       child: SizedBox(
                         width: 600,
                         child: TextFormField(
-                          controller: _movieTitleController,
+                          controller: _boxOfficeController,
                           cursorColor: Colors.red,
                           validator: RequiredValidator(
                             errorText: 'Movie Box Office is required',
@@ -203,14 +214,14 @@ class AdminLogin extends StatelessWidget {
                     const SizedBox(
                       height: 40,
                     ),
-       Card(
+                    Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14),
                       ),
                       child: SizedBox(
                         width: 600,
                         child: TextFormField(
-                          controller: _movieTitleController,
+                          controller: _awardsController,
                           cursorColor: Colors.red,
                           validator: RequiredValidator(
                             errorText: 'Movie Awards is required',
@@ -224,14 +235,14 @@ class AdminLogin extends StatelessWidget {
                     const SizedBox(
                       height: 40,
                     ),
-                     Card(
+                    Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14),
                       ),
                       child: SizedBox(
                         width: 600,
                         child: TextFormField(
-                          controller: _movieTitleController,
+                          controller: _languageController,
                           cursorColor: Colors.red,
                           validator: RequiredValidator(
                             errorText: 'Movie Language is required',
@@ -252,7 +263,7 @@ class AdminLogin extends StatelessWidget {
                       child: SizedBox(
                         width: 600,
                         child: TextFormField(
-                          controller: _movieTitleController,
+                          controller: _genreController,
                           cursorColor: Colors.red,
                           validator: RequiredValidator(
                             errorText: 'Movie Genre is required',
@@ -273,7 +284,7 @@ class AdminLogin extends StatelessWidget {
                       child: SizedBox(
                         width: 600,
                         child: TextFormField(
-                          controller: _movieTitleController,
+                          controller: _directorController,
                           cursorColor: Colors.red,
                           validator: RequiredValidator(
                             errorText: 'Movie Director is required',
@@ -294,10 +305,24 @@ class AdminLogin extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 120,
-            ),
- 
+            Card(
+              clipBehavior: Clip.antiAlias,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(14)),
+              child: MaterialButton(
+                minWidth: 200,
+                height: 50,
+                color: Colors.red,
+                onPressed: () {
+                  if (_key.currentState!.validate()) {
+                    print("Working");
+                  } else {
+                    print("NOT working");
+                  }
+                },
+                child: const Text('Submit'),
+              ),
+            )
             /* MaterialButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/home_page');
