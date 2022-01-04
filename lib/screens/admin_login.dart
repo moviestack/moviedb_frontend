@@ -8,7 +8,7 @@ class AdminLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    TextEditingController _movieTitleController = TextEditingController();
+    TextEditingController _movieTitleControlle = TextEditingController();
     final _key = GlobalKey<FormState>();
     return Scaffold(
       appBar: PreferredSize(
@@ -42,7 +42,7 @@ class AdminLogin extends StatelessWidget {
                       child: SizedBox(
                         width: 600,
                         child: TextFormField(
-                          controller: _movieTitleController,
+                          controller: _movieTitleControlle,
                           cursorColor: Colors.red,
                           validator: RequiredValidator(
                             errorText: 'Movie Title is required',
