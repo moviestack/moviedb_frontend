@@ -172,7 +172,7 @@ class _LogInState extends State<LogIn> {
                       minWidth: 200,
                       height: 42,
                       onPressed: () {
-                        Navigator.pushNamed(context, '/adminLogin');
+                        Navigator.pushNamed(context, '/admin_login');
                       },
                       child: const Text(
                         'Admin login',

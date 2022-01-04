@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:lottie/lottie.dart';
+import 'package:moviedb/screens/review_page.dart';
 import 'package:moviedb/services/database.dart';
 
 // ignore: must_be_immutable
@@ -388,7 +389,15 @@ class _MoviePageState extends State<MoviePage> {
                                       clipBehavior: Clip.antiAlias,
                                       child: MaterialButton(
                                         color: Colors.red,
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(context,
+                                              MaterialPageRoute(
+                                                  builder: (context) {
+                                            return ReviewPage(
+                                              mId: widget.data['m_id'],
+                                            );
+                                          }));
+                                        },
                                         child: const Text('Add/View review'),
                                       ),
                                     ),

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:get_storage/get_storage.dart';
 
 class Database {
   final dio = Dio();
@@ -73,5 +74,13 @@ class Database {
       "uname": uname,
     });
     resp.data;
+  }
+
+  Future getReviews(int mId) async {
+    final box = GetStorage();
+    final resp = await dio.get('http://localhost:3000/getReview',
+        queryParameters: {"m_id": mId, "uname": box.read('uname')});
+    // print(resp.data);
+    return resp.data;
   }
 }
