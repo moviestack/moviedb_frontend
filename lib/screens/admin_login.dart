@@ -56,7 +56,237 @@ class AdminLogin extends StatelessWidget {
                     const SizedBox(
                       height: 40,
                     ),
-
+  Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child: SizedBox(
+                        width: 600,
+                        child: TextFormField(
+                          controller: _movieTitleController,
+                          cursorColor: Colors.red,
+                          validator: RequiredValidator(
+                            errorText: 'Movie Plot is required',
+                          ),
+                          decoration: inputDecoration.copyWith(
+                            labelText: 'Movie Plot',
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+ Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child: SizedBox(
+                        width: 600,
+                        child: TextFormField(
+                          controller: _movieTitleController,
+                          cursorColor: Colors.red,
+                          validator: RequiredValidator(
+                            errorText: 'Movie Year is required',
+                          ),
+                          decoration: inputDecoration.copyWith(
+                            labelText: 'Movie Year',
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+ Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child: SizedBox(
+                        width: 600,
+                        child: TextFormField(
+                          controller: _movieTitleController,
+                          cursorColor: Colors.red,
+                          validator: RequiredValidator(
+                            errorText: 'Movie Duration is required',
+                          ),
+                          decoration: inputDecoration.copyWith(
+                            labelText: 'Movie Duration',
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+        Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child: SizedBox(
+                        width: 600,
+                        child: TextFormField(
+                          controller: _movieTitleController,
+                          cursorColor: Colors.red,
+                          validator: RequiredValidator(
+                            errorText: 'Movie URL is required',
+                          ),
+                          decoration: inputDecoration.copyWith(
+                            labelText: 'Movie URL',
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+ Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child: SizedBox(
+                        width: 600,
+                        child: TextFormField(
+                          controller: _movieTitleController,
+                          cursorColor: Colors.red,
+                          validator: RequiredValidator(
+                            errorText: 'Movie Country is required',
+                          ),
+                          decoration: inputDecoration.copyWith(
+                            labelText: 'Movie Country',
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+ Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child: SizedBox(
+                        width: 600,
+                        child: TextFormField(
+                          controller: _movieTitleController,
+                          cursorColor: Colors.red,
+                          validator: RequiredValidator(
+                            errorText: 'Movie Production is required',
+                          ),
+                          decoration: inputDecoration.copyWith(
+                            labelText: 'Movie Production',
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+       Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child: SizedBox(
+                        width: 600,
+                        child: TextFormField(
+                          controller: _movieTitleController,
+                          cursorColor: Colors.red,
+                          validator: RequiredValidator(
+                            errorText: 'Movie Box Office is required',
+                          ),
+                          decoration: inputDecoration.copyWith(
+                            labelText: 'Movie Box Office',
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+       Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child: SizedBox(
+                        width: 600,
+                        child: TextFormField(
+                          controller: _movieTitleController,
+                          cursorColor: Colors.red,
+                          validator: RequiredValidator(
+                            errorText: 'Movie Awards is required',
+                          ),
+                          decoration: inputDecoration.copyWith(
+                            labelText: 'Movie Awards',
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                     Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child: SizedBox(
+                        width: 600,
+                        child: TextFormField(
+                          controller: _movieTitleController,
+                          cursorColor: Colors.red,
+                          validator: RequiredValidator(
+                            errorText: 'Movie Language is required',
+                          ),
+                          decoration: inputDecoration.copyWith(
+                            labelText: 'Movie Language',
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child: SizedBox(
+                        width: 600,
+                        child: TextFormField(
+                          controller: _movieTitleController,
+                          cursorColor: Colors.red,
+                          validator: RequiredValidator(
+                            errorText: 'Movie Genre is required',
+                          ),
+                          decoration: inputDecoration.copyWith(
+                            labelText: 'Movie Genre',
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                      child: SizedBox(
+                        width: 600,
+                        child: TextFormField(
+                          controller: _movieTitleController,
+                          cursorColor: Colors.red,
+                          validator: RequiredValidator(
+                            errorText: 'Movie Director is required',
+                          ),
+                          decoration: inputDecoration.copyWith(
+                            labelText: 'Movie Director',
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
                     //add more fields here
                     //add controller for each textform field
                     // check the above code for reference
@@ -67,7 +297,7 @@ class AdminLogin extends StatelessWidget {
             const SizedBox(
               height: 120,
             ),
-
+ 
             /* MaterialButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/home_page');
