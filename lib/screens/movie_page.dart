@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:lottie/lottie.dart';
+import 'package:moviedb/constants/input_decoration.dart';
 import 'package:moviedb/screens/review_page.dart';
 import 'package:moviedb/services/database.dart';
 
@@ -21,6 +22,7 @@ class _MoviePageState extends State<MoviePage> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+    TextEditingController review_descController = TextEditingController();
     double rating = 10;
     final box = GetStorage();
     return Scaffold(
@@ -82,8 +84,8 @@ class _MoviePageState extends State<MoviePage> {
                                     errorBuilder: (context, error, stackTrace) {
                                       return Image.asset(
                                         'assets/images/pp,840x830-pad,1000x1000,f8f8f8.u2.jpg',
-                                        width: 500,
-                                        height: 500,
+                                        width: 340,
+                                        height: 520,
                                       );
                                     },
                                   ),
@@ -345,6 +347,21 @@ class _MoviePageState extends State<MoviePage> {
                                                         rating = 2 * rate;
                                                       },
                                                     ),
+                                                    SizedBox(
+                                                      width: 500,
+                                                      child: TextField(
+                                                        maxLines: 4,
+                                                        cursorColor: Colors.red,
+                                                        controller:
+                                                            review_descController,
+                                                        decoration:
+                                                            inputDecoration
+                                                                .copyWith(
+                                                          labelText:
+                                                              'Description',
+                                                        ),
+                                                      ),
+                                                    ),
                                                     Card(
                                                       shape:
                                                           RoundedRectangleBorder(
@@ -359,11 +376,14 @@ class _MoviePageState extends State<MoviePage> {
                                                       child: MaterialButton(
                                                         color: Colors.red,
                                                         onPressed: () {
-                                                          Database().addRating(
-                                                              widget
-                                                                  .data['m_id'],
-                                                              box.read('uname'),
-                                                              rating);
+                                                          Database()
+                                                              .addRatingAndReview(
+                                                            widget.data['m_id'],
+                                                            box.read('uname'),
+                                                            rating,
+                                                            review_descController
+                                                                .text,
+                                                          );
                                                           Navigator.of(context)
                                                               .pop();
                                                           setState(() {});
@@ -376,7 +396,7 @@ class _MoviePageState extends State<MoviePage> {
                                                 );
                                               });
                                         },
-                                        child: const Text('Add rating'),
+                                        child: const Text('Add rating/Review'),
                                       ),
                                     ),
                                   ),
@@ -398,7 +418,7 @@ class _MoviePageState extends State<MoviePage> {
                                             );
                                           }));
                                         },
-                                        child: const Text('Add/View review'),
+                                        child: const Text('View review'),
                                       ),
                                     ),
                                   ),

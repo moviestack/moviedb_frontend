@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:get_storage/get_storage.dart';
 
 class Database {
@@ -67,40 +68,72 @@ class Database {
     return resp.data;
   }
 
-  Future addRating(int mId, String uname, double rating) async {
-    final resp = await dio.post('http://localhost:3000/addRating', data: {
+  Future addRatingAndReview(
+      int mId, String uname, double rating, String review) async {
+    final resp =
+        await dio.post('http://localhost:3000/addRatingAndReview', data: {
       "m_id": mId,
       "rating": rating,
       "uname": uname,
+      "review": review,
     });
     resp.data;
   }
 
-  Future getReviews(int mId) async {
-    final box = GetStorage();
-    final resp = await dio.get('http://localhost:3000/getReview',
-        queryParameters: {"m_id": mId, "uname": box.read('uname')});
-    // print(resp.data);
+  Future addReview(int mId, String uname, String review_desc) async {
+    final resp = await dio.post('http://localhost:3000/addReview', data: {
+      "m_id": mId,
+      "review": review_desc,
+      "uname": uname,
+    });
     return resp.data;
   }
 
-  Future addMovie(title, plot, year, duration, url, country, production,
-      boxOffice, awards, language, genre, director) async {
-    final resp = await dio.post('http://localhost:3000/add_movie', data: {
+  Future getReviews(int mId) async {
+    final resp = await dio.get('http://localhost:3000/getAllReviews',
+        queryParameters: {"m_id": mId});
+    return resp.data;
+  }
+
+  Future addMovie(
+      String title,
+      String plot,
+      String year,
+      String duration,
+      String url,
+      String country,
+      String production,
+      String boxOffice,
+      String awards,
+      String language,
+      String genre,
+      String director,
+      String rating,
+      String review) async {
+    final resp =
+        await dio.post('http://localhost:3000/add_movie', queryParameters: {
       "title": title,
       "plot": plot,
       "year": year,
       "duration": duration,
       "url": url,
       "country": country,
-      "production": production,
       "box_office": boxOffice,
+      "production": production,
       "awards": awards,
       "language": language,
       "genre": genre,
       "director": director,
+      "rating": rating,
+      "review_description": review,
     });
 
+    return resp.data;
+  }
+
+  Future deleteMovie(title) async {
+    final resp = await dio.delete('http://localhost:3000/deleteMovie',
+        queryParameters: {"title": title});
     return resp.data;
   }
 }

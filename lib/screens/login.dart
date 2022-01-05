@@ -78,6 +78,7 @@ class _LogInState extends State<LogIn> {
                     child: SizedBox(
                         width: 600,
                         child: TextFormField(
+                          obscureText: true,
                           controller: _passwordController,
                           validator: RequiredValidator(
                               errorText: 'Password is required'),
