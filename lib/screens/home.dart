@@ -23,7 +23,8 @@ class _HomeWidgetState extends State<HomeWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey.withAlpha(10),
+      //   color: Colors.grey.withAlpha(10),
+
       child: Column(
         children: [
           Expanded(
@@ -60,15 +61,13 @@ class _HomeWidgetState extends State<HomeWidget> {
                               children: const [
                                 Icon(
                                   Icons.search,
-                                  color: Colors.amber,
+                                  color: Colors.redAccent,
                                 ),
                                 Text(
                                   'Search...',
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 12,
-                                  ),
+                                      fontSize: 12, color: Colors.white),
                                 )
                               ],
                             ),
@@ -76,9 +75,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                           hintText: 'example ->The Matrix',
                           hintStyle: const TextStyle(fontSize: 12),
                           enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(18),
-                          ),
+                              borderRadius: BorderRadius.circular(18),
+                              borderSide: BorderSide(
+                                  color: Colors.white.withAlpha(120))),
                           focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.white.withAlpha(160)),
                             borderRadius: BorderRadius.circular(18),
                           ),
                         ),
@@ -90,13 +92,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                   width: widget.width / 2.0,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 10, top: 10),
+                  padding: const EdgeInsets.only(right: 15, top: 10),
                   child: CircleAvatar(
                     radius: 30,
                     backgroundColor: Colors.red,
+                    foregroundColor: Colors.white,
                     child: Text(
                       box.read('uname').toString()[0],
-                      style: const TextStyle(fontSize: 20),
+                      style: const TextStyle(fontSize: 22),
                     ),
                   ),
                 ),

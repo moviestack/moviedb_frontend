@@ -11,25 +11,27 @@ class AdminPage extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController _titleController = TextEditingController();
     return Scaffold(
-      appBar: PreferredSize(
-          child: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [Colors.red, Colors.pink],
-                  begin: Alignment.topLeft,
-                  end: Alignment.topRight),
-            ),
-            child: const Center(
-              child: Text(
-                'Admin portal',
-                style: TextStyle(
-                    fontSize: 36,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
-              ),
+      appBar: AppBar(
+        flexibleSpace: Container(
+          height: 100,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.red, Colors.pink],
+              begin: Alignment.topLeft,
+              end: Alignment.topRight,
             ),
           ),
-          preferredSize: Size(MediaQuery.of(context).size.width, 100)),
+          child: const Center(
+            child: Text(
+              'Admin portal',
+              style: TextStyle(
+                  fontSize: 36,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
+      ),
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

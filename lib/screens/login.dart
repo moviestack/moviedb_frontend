@@ -80,8 +80,13 @@ class _LogInState extends State<LogIn> {
                         child: TextFormField(
                           obscureText: true,
                           controller: _passwordController,
-                          validator: RequiredValidator(
-                              errorText: 'Password is required'),
+                          validator: MultiValidator([
+                            RequiredValidator(
+                                errorText: 'Password is required'),
+                            MinLengthValidator(6,
+                                errorText:
+                                    'Password must have at least 6 characters'),
+                          ]),
                           cursorColor: Colors.red,
                           decoration: inputDecoration.copyWith(
                             labelText: 'Password',
@@ -98,86 +103,119 @@ class _LogInState extends State<LogIn> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Card(
-                    color: Colors.red,
-                    elevation: 10,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(14)),
-                    clipBehavior: Clip.antiAlias,
-                    child: MaterialButton(
-                      minWidth: 280,
-                      height: 42,
-                      onPressed: () async {
-                        var resp = await _auth.register(
-                            _usernameController.text, _passwordController.text);
-                        if (resp['status'] == 200) {
-                          box.write('uname', _usernameController.text);
-                          Navigator.pushReplacementNamed(context, '/home_page');
-                        } else {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                resp['error'],
-                              ),
-                            ),
-                          );
-                        }
-                      },
-                      child: const Text(
-                        'Create account',
-                        style: TextStyle(fontSize: 12, fontFamily: 'geomet'),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        gradient: const LinearGradient(
+                            colors: [Colors.red, Colors.pink],
+                            begin: Alignment.topLeft,
+                            end: Alignment.topRight),
                       ),
-                    ),
-                  ),
-                  Card(
-                    color: Colors.red,
-                    elevation: 10,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(14)),
-                    clipBehavior: Clip.antiAlias,
-                    child: MaterialButton(
-                      minWidth: 120,
-                      height: 42,
-                      onPressed: () async {
-                        //login logic needs to be implemented8
-                        if (_key.currentState!.validate()) {
-                          var resp = await _auth.login(_usernameController.text,
-                              _passwordController.text);
-                          if (resp['status'] == 200) {
-                            box.write('uname', _usernameController.text);
-                            Navigator.pushReplacementNamed(
-                                context, '/home_page');
-                          } else {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  resp['error'],
+                      child: MaterialButton(
+                        minWidth: 280,
+                        height: 42,
+                        onPressed: () async {
+                          if (_key.currentState!.validate()) {
+                            var resp = await _auth.register(
+                                _usernameController.text,
+                                _passwordController.text);
+                            if (resp['status'] == 200) {
+                              box.write('uname', _usernameController.text);
+                              Navigator.pushReplacementNamed(
+                                  context, '/home_page');
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    resp['error'],
+                                  ),
                                 ),
-                              ),
-                            );
+                              );
+                            }
                           }
-                        }
-                      },
-                      child: const Text(
-                        'Login',
-                        style: TextStyle(fontSize: 12, fontFamily: 'geomet'),
+                        },
+                        child: const Text(
+                          'Create account',
+                          style: TextStyle(fontSize: 12, fontFamily: 'geomet'),
+                        ),
                       ),
                     ),
                   ),
-                  Card(
-                    color: Colors.red,
-                    elevation: 10,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(14)),
-                    child: MaterialButton(
-                      minWidth: 200,
-                      height: 42,
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/admin_login');
-                      },
-                      child: const Text(
-                        'Admin login',
-                        style: TextStyle(fontSize: 12, fontFamily: 'geomet'),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        gradient: const LinearGradient(
+                            colors: [Colors.red, Colors.pink],
+                            begin: Alignment.topLeft,
+                            end: Alignment.topRight),
+                      ),
+                      child: MaterialButton(
+                        minWidth: 120,
+                        height: 42,
+                        onPressed: () async {
+                          //login logic needs to be implemented8
+                          if (_key.currentState!.validate()) {
+                            var resp = await _auth.login(
+                                _usernameController.text,
+                                _passwordController.text);
+                            if (resp['status'] == 200) {
+                              box.write('uname', _usernameController.text);
+                              Navigator.pushReplacementNamed(
+                                  context, '/home_page');
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    resp['error'],
+                                  ),
+                                ),
+                              );
+                            }
+                          }
+                        },
+                        child: const Text(
+                          'Login',
+                          style: TextStyle(fontSize: 12, fontFamily: 'geomet'),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        gradient: const LinearGradient(
+                            colors: [Colors.red, Colors.pink],
+                            begin: Alignment.topLeft,
+                            end: Alignment.topRight),
+                      ),
+                      child: MaterialButton(
+                        minWidth: 200,
+                        height: 42,
+                        onPressed: () async {
+                          if (_key.currentState!.validate()) {
+                            if (_usernameController.text == 'admin' &&
+                                _passwordController.text == '2.99792458') {
+                              box.write('uname', _usernameController.text);
+                              Navigator.pushNamed(context, '/admin_login');
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Cannot login'),
+                                ),
+                              );
+                            }
+                          }
+                        },
+                        child: const Text(
+                          'Admin login',
+                          style: TextStyle(fontSize: 12, fontFamily: 'geomet'),
+                        ),
                       ),
                     ),
                   )

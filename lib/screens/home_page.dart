@@ -36,9 +36,17 @@ class _HomePageState extends State<HomePage> {
                   flex: 1,
                   child: Container(
                     decoration: BoxDecoration(
-                        color: Colors.blueGrey.withAlpha(20),
+                        //  color: Colors.blueGrey.withAlpha(20),
+
+                        gradient: LinearGradient(
+                            colors: [
+                              Colors.pink,
+                              Colors.red,
+                            ],
+                            begin: Alignment.topRight,
+                            end: Alignment.bottomLeft),
                         borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(40))),
+                            topRight: Radius.circular(40))),
                     child: ListView(
                       children: [
                         const ListTile(
@@ -46,7 +54,7 @@ class _HomePageState extends State<HomePage> {
                             'MovieDB.',
                             style: TextStyle(
                               fontSize: 30,
-                              color: Colors.red,
+                              color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'geomet',
                             ),
@@ -59,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                           title: Text('Menu', style: TextStyle(fontSize: 13)),
                           leading: FaIcon(
                             FontAwesomeIcons.list,
-                            color: Color(0xffE50914),
+                            color: Colors.white,
                           ),
                         ),
                         ListTile(
@@ -67,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                               style: TextStyle(fontSize: 13)),
                           leading: const FaIcon(
                             FontAwesomeIcons.play,
-                            color: Color(0xffE50914),
+                            color: Colors.white,
                           ),
                           onTap: () {
                             controller.index.value = 0;
@@ -78,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                               style: TextStyle(fontSize: 13)),
                           leading: const FaIcon(
                             FontAwesomeIcons.search,
-                            color: Color(0xffE50914),
+                            color: Colors.white,
                           ),
                           onTap: () {
                             controller.index.value = 1;
@@ -89,7 +97,8 @@ class _HomePageState extends State<HomePage> {
                               style: TextStyle(fontSize: 13)),
                           leading: const FaIcon(
                             FontAwesomeIcons.signOutAlt,
-                            color: Color(0xffE50914),
+                            //  color: Color(0xffE50914),
+                            color: Colors.white,
                           ),
                           onTap: () {
                             Navigator.of(context).popAndPushNamed('/login');

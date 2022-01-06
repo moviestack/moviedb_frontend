@@ -50,12 +50,12 @@ class _MoviesGridState extends State<MoviesGrid> {
             itemBuilder: (context, i) {
               return Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Card(
-                  shape: RoundedRectangleBorder(
+                child: Container(
+                  decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(18),
+                    boxShadow: [],
                   ),
                   clipBehavior: Clip.antiAlias,
-                  elevation: 16,
                   child: GestureDetector(
                     onTap: () {
                       Navigator.push(context,
@@ -72,7 +72,8 @@ class _MoviesGridState extends State<MoviesGrid> {
                           return Image.asset(
                             'assets/images/pp,840x830-pad,1000x1000,f8f8f8.u2.jpg',
                             width: 500,
-                            height: 500,
+                            height: 1000,
+                            fit: BoxFit.fitHeight,
                           );
                         },
                       ),

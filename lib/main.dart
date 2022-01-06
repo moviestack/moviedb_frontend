@@ -10,7 +10,7 @@ void main() async {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: 'geomet', brightness: Brightness.light),
+      theme: ThemeData(fontFamily: 'geomet', brightness: Brightness.dark),
       routes: {
         '/login': (context) => const LogIn(),
         '/home_page': (context) => const HomePage(),

@@ -222,6 +222,22 @@ class _MoviePageState extends State<MoviePage> {
                                         ),
                                         const TextSpan(
                                           text:
+                                              'Genre :                                ',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.normal,
+                                              fontStyle: FontStyle.italic,
+                                              fontSize: 12),
+                                        ),
+                                        TextSpan(
+                                          text: '${snap.data['genre']}\n',
+                                          style: const TextStyle(
+                                              fontWeight: FontWeight.normal,
+                                              fontStyle: FontStyle.normal,
+                                              fontFamily: 'prodSans',
+                                              fontSize: 16),
+                                        ),
+                                        const TextSpan(
+                                          text:
                                               'Box-office :                       ',
                                           style: TextStyle(
                                               fontWeight: FontWeight.normal,
@@ -296,7 +312,7 @@ class _MoviePageState extends State<MoviePage> {
                               ),
                             ),
                             Positioned(
-                              top: 620,
+                              top: 600,
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
@@ -304,13 +320,18 @@ class _MoviePageState extends State<MoviePage> {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Card(
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      clipBehavior: Clip.antiAlias,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        gradient: const LinearGradient(
+                                          colors: [Colors.red, Colors.pink],
+                                          begin: Alignment.center,
+                                          end: Alignment.bottomCenter,
+                                        ),
+                                      ),
                                       child: MaterialButton(
-                                        color: Colors.red,
+                                        height: 60,
+                                        minWidth: 200,
                                         onPressed: () {
                                           showDialog(
                                               context: context,
@@ -402,13 +423,18 @@ class _MoviePageState extends State<MoviePage> {
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Card(
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      clipBehavior: Clip.antiAlias,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        gradient: const LinearGradient(
+                                          colors: [Colors.red, Colors.pink],
+                                          begin: Alignment.center,
+                                          end: Alignment.bottomCenter,
+                                        ),
+                                      ),
                                       child: MaterialButton(
-                                        color: Colors.red,
+                                        height: 60,
+                                        minWidth: 200,
                                         onPressed: () {
                                           Navigator.push(context,
                                               MaterialPageRoute(
@@ -430,13 +456,14 @@ class _MoviePageState extends State<MoviePage> {
                               top: 20,
                               left: 20,
                               child: IconButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  icon: const Icon(
-                                    Icons.arrow_back,
-                                    color: Colors.white,
-                                  )),
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                icon: const Icon(
+                                  Icons.arrow_back,
+                                  color: Colors.white,
+                                ),
+                              ),
                             ),
                           ],
                         ),
