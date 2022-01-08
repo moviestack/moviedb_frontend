@@ -98,7 +98,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                     backgroundColor: Colors.red,
                     foregroundColor: Colors.white,
                     child: Text(
-                      box.read('uname').toString()[0],
+                      box.read('uname').toString()[0].toUpperCase(),
                       style: const TextStyle(fontSize: 22),
                     ),
                   ),

@@ -199,17 +199,32 @@ class _LogInState extends State<LogIn> {
                         height: 42,
                         onPressed: () async {
                           if (_key.currentState!.validate()) {
-                            if (_usernameController.text == 'admin' &&
-                                _passwordController.text == '2.99792458') {
+                            var resp = await _auth.login(
+                                'admin', _passwordController.text);
+                            if (resp['status'] == 200) {
                               box.write('uname', _usernameController.text);
                               Navigator.pushNamed(context, '/admin_login');
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text('Cannot login'),
+                                SnackBar(
+                                  content: Text(
+                                    resp['error'],
+                                  ),
                                 ),
                               );
                             }
+
+                            // if (_usernameController.text == 'admin' &&
+                            //     _passwordController.text == '299792458') {
+                            //   box.write('uname', _usernameController.text);
+                            //   Navigator.pushNamed(context, '/admin_login');
+                            // } else {
+                            //   ScaffoldMessenger.of(context).showSnackBar(
+                            //     const SnackBar(
+                            //       content: Text('Cannot login'),
+                            //     ),
+                            //   );
+                            // }
                           }
                         },
                         child: const Text(

@@ -21,25 +21,25 @@ class _ReviewPageState extends State<ReviewPage> {
         builder: (context, AsyncSnapshot<dynamic> snap) {
           if (snap.connectionState == ConnectionState.done) {
             return Scaffold(
-              appBar: PreferredSize(
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                          colors: [Colors.red, Colors.pink],
-                          begin: Alignment.topLeft,
-                          end: Alignment.topRight),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        'Reviews',
-                        style: TextStyle(
-                            fontSize: 36,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
+              appBar: AppBar(
+                title: const Center(
+                  child: Text(
+                    'Reviews',
+                    style: TextStyle(
+                        fontSize: 36,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
                   ),
-                  preferredSize: Size(MediaQuery.of(context).size.width, 100)),
+                ),
+                flexibleSpace: Container(
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                        colors: [Colors.red, Colors.pink],
+                        begin: Alignment.topLeft,
+                        end: Alignment.topRight),
+                  ),
+                ),
+              ),
               body: Center(
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width / 1.8,

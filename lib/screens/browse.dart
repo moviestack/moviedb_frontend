@@ -14,17 +14,17 @@ class BrowseScreenWidget extends StatefulWidget {
 
 class _BrowseScreenWidgetState extends State<BrowseScreenWidget> {
   List<String> titles = [
-    '1.language',
-    '2.director name',
+    '1.Language',
+    '2.Director name',
     //  'year of release',
-    '3.minimum box-office collection',
-    '4.maximum box-office collection',
-    '5.country of origin',
-    '6.genre',
-    '7.above rating',
-    '8.below rating'
+    '3.Minimum box-office collection',
+    '4.Maximum box-office collection',
+    '5.Country of origin',
+    '6.Genre',
+    '7.Above rating',
+    '8.Below rating'
   ];
-  String selectedVal = '1.language';
+  String selectedVal = '1.Language';
   String searchingValue = '';
   String index = '1';
   bool isSearching = false;
@@ -53,8 +53,11 @@ class _BrowseScreenWidgetState extends State<BrowseScreenWidget> {
                     child: TextFormField(
                       cursorColor: Colors.red,
                       decoration: inputDecoration.copyWith(
-                          labelText:
-                              ' search by entering ${selectedVal.toString().split('.')[1]}'),
+                        labelText:
+                            ' Search by entering ${selectedVal.toString().split('.')[1]}',
+                        labelStyle:
+                            const TextStyle(fontSize: 13, color: Colors.grey),
+                      ),
                       onFieldSubmitted: (String value) {
                         setState(() {
                           isSearching = true;
@@ -82,7 +85,7 @@ class _BrowseScreenWidgetState extends State<BrowseScreenWidget> {
                         value: items,
                         child: Text(
                           items.split('.')[1],
-                          style: const TextStyle(fontSize: 12),
+                          style: const TextStyle(fontSize: 14),
                         ),
                       );
                     }).toList(),

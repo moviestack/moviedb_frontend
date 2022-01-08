@@ -142,11 +142,11 @@ class _MoviePageState extends State<MoviePage> {
                                               fontSize: 18),
                                         ),
                                         TextSpan(
-                                          text: snap.data['plot'] +
-                                              '\n\n\n\n\n\n\n\n',
+                                          text:
+                                              snap.data['plot'] + '\n\n\n\n\n',
                                           style: const TextStyle(
                                               fontWeight: FontWeight.normal,
-                                              fontFamily: 'prodSans',
+                                              fontFamily: 'nexa',
                                               fontSize: 16),
                                         ),
                                         const TextSpan(

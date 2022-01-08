@@ -110,5 +110,8 @@ flutter:
     - family: geomet 
       fonts:
         - asset: assets/fonts/Geometos.ttf
+    - family: nexa
+      fonts:  
+        - asset: assets/fonts/Nexa Regular.otf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

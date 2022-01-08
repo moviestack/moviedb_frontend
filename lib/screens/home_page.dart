@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
                 Expanded(
                   flex: 1,
                   child: Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         //  color: Colors.blueGrey.withAlpha(20),
 
                         gradient: LinearGradient(
@@ -45,8 +45,8 @@ class _HomePageState extends State<HomePage> {
                             ],
                             begin: Alignment.topRight,
                             end: Alignment.bottomLeft),
-                        borderRadius: const BorderRadius.only(
-                            topRight: Radius.circular(40))),
+                        borderRadius:
+                            BorderRadius.only(topRight: Radius.circular(40))),
                     child: ListView(
                       children: [
                         const ListTile(
@@ -64,7 +64,9 @@ class _HomePageState extends State<HomePage> {
                           height: 54,
                         ),
                         const ListTile(
-                          title: Text('Menu', style: TextStyle(fontSize: 13)),
+                          title: Text('Menu',
+                              style: TextStyle(
+                                  fontSize: 13, fontWeight: FontWeight.bold)),
                           leading: FaIcon(
                             FontAwesomeIcons.list,
                             color: Colors.white,
@@ -72,7 +74,8 @@ class _HomePageState extends State<HomePage> {
                         ),
                         ListTile(
                           title: const Text('Home',
-                              style: TextStyle(fontSize: 13)),
+                              style: TextStyle(
+                                  fontSize: 13, fontWeight: FontWeight.bold)),
                           leading: const FaIcon(
                             FontAwesomeIcons.play,
                             color: Colors.white,
@@ -83,7 +86,8 @@ class _HomePageState extends State<HomePage> {
                         ),
                         ListTile(
                           title: const Text('Browse',
-                              style: TextStyle(fontSize: 13)),
+                              style: TextStyle(
+                                  fontSize: 13, fontWeight: FontWeight.bold)),
                           leading: const FaIcon(
                             FontAwesomeIcons.search,
                             color: Colors.white,
@@ -93,8 +97,9 @@ class _HomePageState extends State<HomePage> {
                           },
                         ),
                         ListTile(
-                          title: const Text('LogOut',
-                              style: TextStyle(fontSize: 13)),
+                          title: const Text('Logout',
+                              style: TextStyle(
+                                  fontSize: 13, fontWeight: FontWeight.bold)),
                           leading: const FaIcon(
                             FontAwesomeIcons.signOutAlt,
                             //  color: Color(0xffE50914),

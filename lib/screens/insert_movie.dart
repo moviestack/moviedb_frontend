@@ -25,25 +25,23 @@ class InsertMovie extends StatelessWidget {
     TextEditingController _reviewController = TextEditingController();
     final _key = GlobalKey<FormState>();
     return Scaffold(
-      appBar: PreferredSize(
-          child: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [Colors.red, Colors.pink],
-                  begin: Alignment.topLeft,
-                  end: Alignment.topRight),
-            ),
-            child: const Center(
-              child: Text(
-                'Insert Movie',
-                style: TextStyle(
-                    fontSize: 36,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
+      appBar: AppBar(
+        title: Center(
+          child: const Text(
+            'Insert movie',
+            style: TextStyle(
+                fontSize: 36, color: Colors.white, fontWeight: FontWeight.bold),
           ),
-          preferredSize: Size(MediaQuery.of(context).size.width, 100)),
+        ),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                colors: [Colors.red, Colors.pink],
+                begin: Alignment.topLeft,
+                end: Alignment.topRight),
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
