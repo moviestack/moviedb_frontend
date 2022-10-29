@@ -25,8 +25,8 @@ class AdminPage extends StatelessWidget {
             child: Text(
               'Admin portal',
               style: TextStyle(
-                  fontSize: 36,
-                  color: Colors.white,
+                  fontSize: 34,
+                  color: Colors.white.withAlpha(200),
                   fontWeight: FontWeight.bold),
             ),
           ),
