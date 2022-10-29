@@ -1,7 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:moviedb/screens/movie_page.dart';
 import 'package:moviedb/services/database.dart';
 import 'package:lottie/lottie.dart';
+import 'package:flutter/material.dart';
+import 'package:moviedb/screens/movie_page.dart';
+
+
+
+
 
 class MoviesGrid extends StatefulWidget {
   Future future;
@@ -29,8 +33,8 @@ class _MoviesGridState extends State<MoviesGrid> {
         if (snap.connectionState == ConnectionState.waiting) {
           return Center(
             child: SizedBox(
-              height: 500,
-              width: 500,
+              height: 540,
+              width: 540,
               child: Lottie.network(
                   'https://assets9.lottiefiles.com/packages/lf20_lrjha2vi.json'),
             ),
@@ -46,14 +50,14 @@ class _MoviesGridState extends State<MoviesGrid> {
             itemCount: snap.data!.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 5,
-                childAspectRatio: 1.5 * size.height / size.width),
+                childAspectRatio: 1.6 * size.height / size.width),
             itemBuilder: (context, i) {
               return Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(18.0),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(18),
-                    boxShadow: [],
+                
                   ),
                   clipBehavior: Clip.antiAlias,
                   child: GestureDetector(
