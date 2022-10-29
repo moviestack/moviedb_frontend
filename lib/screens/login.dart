@@ -21,8 +21,8 @@ class _LogInState extends State<LogIn> {
 
   @override
   Widget build(BuildContext context) {
+    
     double width = MediaQuery.of(context).size.width;
-    //double height = MediaQuery.of(context).size.height;
     TextEditingController _usernameController = TextEditingController();
     TextEditingController _passwordController = TextEditingController();
 
@@ -69,14 +69,14 @@ class _LogInState extends State<LogIn> {
                     ),
                   ),
                   const SizedBox(
-                    height: 40,
+                    height: 50,
                   ),
                   Card(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(14),
                     ),
                     child: SizedBox(
-                        width: 600,
+                        width: 620,
                         child: TextFormField(
                           obscureText: true,
                           controller: _passwordController,
@@ -97,7 +97,7 @@ class _LogInState extends State<LogIn> {
               ),
             ),
             const SizedBox(
-              height: 120,
+              height: 128,
             ),
             Center(
               child: Row(
@@ -114,8 +114,9 @@ class _LogInState extends State<LogIn> {
                             end: Alignment.topRight),
                       ),
                       child: MaterialButton(
-                        minWidth: 280,
                         height: 42,
+                        minWidth: 280,
+                   
                         onPressed: () async {
                           if (_key.currentState!.validate()) {
                             var resp = await _auth.register(
@@ -157,8 +158,9 @@ class _LogInState extends State<LogIn> {
                         minWidth: 120,
                         height: 42,
                         onPressed: () async {
-                          //login logic needs to be implemented8
+                        
                           if (_key.currentState!.validate()) {
+                            
                             var resp = await _auth.login(
                                 _usernameController.text,
                                 _passwordController.text);
@@ -214,17 +216,6 @@ class _LogInState extends State<LogIn> {
                               );
                             }
 
-                            // if (_usernameController.text == 'admin' &&
-                            //     _passwordController.text == '299792458') {
-                            //   box.write('uname', _usernameController.text);
-                            //   Navigator.pushNamed(context, '/admin_login');
-                            // } else {
-                            //   ScaffoldMessenger.of(context).showSnackBar(
-                            //     const SnackBar(
-                            //       content: Text('Cannot login'),
-                            //     ),
-                            //   );
-                            // }
                           }
                         },
                         child: const Text(
