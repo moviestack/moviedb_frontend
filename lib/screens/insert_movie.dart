@@ -9,6 +9,12 @@ class InsertMovie extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    TextEditingController _awardsController = TextEditingController();
+    TextEditingController _languageController = TextEditingController();
+    TextEditingController _genreController = TextEditingController();
+    TextEditingController _directorController = TextEditingController();
+    TextEditingController _ratingController = TextEditingController();
+    TextEditingController _reviewController = TextEditingController();
     TextEditingController _titleController = TextEditingController();
     TextEditingController _plotController = TextEditingController();
     TextEditingController _yearController = TextEditingController();
@@ -17,18 +23,14 @@ class InsertMovie extends StatelessWidget {
     TextEditingController _countryController = TextEditingController();
     TextEditingController _productionController = TextEditingController();
     TextEditingController _boxOfficeController = TextEditingController();
-    TextEditingController _awardsController = TextEditingController();
-    TextEditingController _languageController = TextEditingController();
-    TextEditingController _genreController = TextEditingController();
-    TextEditingController _directorController = TextEditingController();
-    TextEditingController _ratingController = TextEditingController();
-    TextEditingController _reviewController = TextEditingController();
+   
     final _key = GlobalKey<FormState>();
+    
     return Scaffold(
       appBar: AppBar(
         title: Center(
           child: const Text(
-            'Insert movie',
+            'Insert a movie',
             style: TextStyle(
                 fontSize: 36, color: Colors.white, fontWeight: FontWeight.bold),
           ),
@@ -78,7 +80,7 @@ class InsertMovie extends StatelessWidget {
                     ),
                     Card(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(14),
+                        borderRadius: BorderRadius.circular(16),
                       ),
                       child: SizedBox(
                         width: 600,
@@ -404,14 +406,7 @@ class InsertMovie extends StatelessWidget {
                 ),
               ),
             )
-            /* MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/home_page');
-                  },
-                  child: const Text(
-                    'Bypass',
-                  ),
-                ), */
+        
           ],
         ),
       ),
