@@ -36,7 +36,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                   margin: const EdgeInsets.only(right: 40, top: 10),
                   child: SizedBox(
                     width: widget.width / 5.6,
-                    height: 50,
+                    height: 60,
                     child: Padding(
                       padding: const EdgeInsets.all(0.0),
                       child: TextFormField(
@@ -56,7 +56,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                         },
                         decoration: InputDecoration(
                           label: SizedBox(
-                            width: 100,
+                            
+                            width: 102,
                             child: Row(
                               children: const [
                                 Icon(
@@ -72,8 +73,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                               ],
                             ),
                           ),
-                          hintText: 'example ->The Matrix',
-                          hintStyle: const TextStyle(fontSize: 12),
+                          hintText: 'example -> The Matrix',
+                          hintStyle: const TextStyle(fontSize: 14),
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(18),
                               borderSide: BorderSide(
